@@ -11,7 +11,7 @@
 
 This is a Weather Forecast website developed using Node.js and MongoDB. The application allows users to check the weather on the given city and many more information. The project includes server-side logic for Weather API's, City API's. It has graphs for 16 days forecast, PDF file for full user requests info and Admin Page. 
 The Admin user is:
-email: qydnama@gmail.com
+email: amandik@gmail.com
 password: 123 
 
 ## API Services
