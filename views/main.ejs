@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="<%= locale.lang %>">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title><%= locale.mainTitle %></title>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.png">
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+    <!-- BOOTSTRAP -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- OWN CSS -->
+    <link rel="stylesheet" href="/css/main.css">
+
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <div class="container d-flex justify-content-between align-items-center">
+                <div class="d-flex align-items-center">
+                    <img src="/images/favicon.png" alt="Logo" width="30" height="30">
+                    <a class="navbar-brand ms-2" href="/">Weather Forecast</a>
+                </div>
+                <div class="nav-item d-flex align-items-center">
+                    <a class="btn btn-outline-light text-white" href="/sign?lang=<%= locale.lang %>"><%= locale.sign %></a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="row">
+                <div class="col-12 mt-3 mainmain">
+                    <div class="mx-auto text-center">
+                        <h2 class="fs-2 text-primary"><strong><%= locale.welcome %></strong></h2>
+                    </div>
+                    <p class="pri">*<%= locale.welcomeAdditional %>*</p>
+                    <h3 class="fs-3"><strong><%= locale.features %></strong></h3>
+                    <ul class="list-unstyled fs-5">
+                        <li><strong class="fs-4"><%= locale.currentConditions %><br></strong><%= locale.currentConditionsAdditional %><br><br></li>
+                        <li><strong class="fs-4"><%= locale.outlook16Days %><br></strong><%= locale.outlook16DaysAdditional %><br><br></li>
+                        <li><strong class="fs-4"><%= locale.cityInformation %><br></strong><%= locale.cityInformationAdditional %><br><br></li>
+                        <li><strong class="fs-4"><%= locale.interactiveMaps %><br></strong><%= locale.interactiveMapsAdditional %><br><br></li>
+                        <li><strong class="fs-4"><%= locale.graph %></strong><br><%= locale.graphAdditional %><br><br></li>
+                        <li><strong class="fs-4"><%= locale.historySearches %><br></strong><%= locale.historySearchesAdditional %><br><br></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer bg-primary text-center py-3">
+        <div class="dropup dropup-center me-3 language-selector">
+            <a class="dropdown-toggle" href="#" id="Dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="text-decoration: none;">
+                <img src="/images/flags/<%= locale.language %>.png" alt="<%= locale.language %>" style="width: 30px; height: 20px;">
+            </a>
+            
+        
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="Dropdown">
+                <li class="d-flex align-items-center">
+                    <a class="dropdown-item active" href="#">
+                            <img src="/images/flags/<%= locale.language %>.png" alt="Russian" style="width: 30px;"> <%= locale.Language %>
+                        <i class="fa fa-check text-success ms-2"></i>
+                    </a>
+                </li>
+                <li><hr class="dropdown-divider"></li>
+                <li class="d-flex align-items-center">
+                    <% if (locale.lang === 'ru') { %>
+                        <a class="dropdown-item" href="/main?lang=en">
+                            <img src="/images/flags/english.png" alt="English" style="width: 30px;"> English 
+                        </a>
+                    <% } else if (locale.lang === 'en') { %>
+                        <a class="dropdown-item" href="/main?lang=ru">
+                            <img src="/images/flags/russian.png" alt="Russian" style="width: 30px;"> Russian 
+                        </a>
+                    <% } %>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="container">
+            <a class="text-white text-decoration-none" target="_blank" href="https://www.youtube.com/watch?v=gmqu-BLKE-k&list=PLo_wretdH6NvhfR-M9J0VVE1qeJI0weXy&index=1&ab_channel=ghostXD"><%= locale.madeBy %></a>
+        </div>
+    </footer>
+</body>
+</html>

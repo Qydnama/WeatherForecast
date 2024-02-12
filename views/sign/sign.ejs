@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="<%= locale.lang %>">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title><%= locale.signTitle %></title>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.png">
+    <!-- GOOGLE FONT-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&family=Krona+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+    <!-- BOOTSTRAP -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- OWN CSS, JS -->
+    <link rel="stylesheet" href="/css/sign.css" />
+    <script defer src="/js/sign.js"></script>
+    <script defer>
+        function validateForm() {
+            return validateName() && validateEmail() && validatePassword() && validateConfirmPassword();
+        }
+    </script>
+
+</head>
+
+<body class="form-v8">
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <div class="container d-flex justify-content-between align-items-center">
+                <div class="d-flex align-items-center">
+                    <img src="/images/favicon.png" alt="Logo" width="30" height="30">
+                    <a class="navbar-brand ms-2" href="/">Weather Forecast</a>
+                </div>
+                
+                
+                <div class="nav-item d-flex align-items-center">
+                    <a class="btn btn-outline-light text-white" href="/sign?lang=<%= locale.lang %>"><%= locale.sign %></a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="page-content">
+            <div class="form-v8-content">
+                <div class="form-right">
+                    <div class="tab">
+                        <div class="tab-inner">
+                            <button class="tablinks" onclick="openCity(event, 'sign-up')" id="defaultOpen"><%= locale.signUp %></button>
+                        </div>
+                        <div class="tab-inner">
+                            <button class="tablinks" onclick="openCity(event, 'sign-in')"><%= locale.signIn %></button>
+                        </div>
+                    </div>
+
+                    <form id="myForm" class="form-detail">
+                        <div class="tabcontent" id="sign-up">
+                            <div class="form-row">
+                                <label class="form-row-inner">
+                                    <input type="text" name="name" id="full_name" class="input-text mt-2" required
+                                        oninput="validateName()">
+                                    <span class="label"><%= locale.fullName %></span>
+                                    <div class="error" id="full_nameError"></div>
+                                    <span class="border"></span>
+                                </label>
+                            </div>
+                            <div class="form-row">
+                                <label class="form-row-inner">
+                                    <input type="text" name="email" id="your_email" class="input-text mt-2" required
+                                        oninput="validateEmail()">
+                                    <span class="label"><%= locale.email %></span>
+                                    <div class="error" id="your_emailError"></div>
+                                    <span class="border"></span>
+                                </label>
+                            </div>
+                            <div class="form-row">
+                                <label class="form-row-inner">
+                                    <input type="password" name="password" id="password" class="input-text mt-2" required
+                                        oninput="validatePassword()">
+                                    <span class="label"><%= locale.password %></span>
+                                    <div class="error" id="passwordError"></div>
+                                    <span class="border"></span>
+                                </label>
+                            </div>
+                            <div class="form-row">
+                                <label class="form-row-inner">
+                                    <input type="password" name="confirm_password" id="confirm_password"
+                                        class="input-text mt-2" required oninput="validateConfirmPassword()" >
+                                    <span class="label"><%= locale.confirmPassword %></span>
+                                    <div class="error" id="confirm_passwordError"></div>
+                                    <span class="border"></span>
+                                </label>
+                            </div>
+                            <div class="form-row-last">
+                                <button type="button" class="register" onclick="registerUser()"><%= locale.register %></button>
+                            </div>
+                        </div>
+                    </form>
+
+
+                    <form id="yourForm" class="form-detail" method="post">
+                        <div class="tabcontent" id="sign-in">
+                            <div class="form-row">
+                                <label class="form-row-inner">
+                                    <input type="text" name="emailLogin" id="emailLogin" class="input-text" oninput="validateLoginEmail()" required>
+                                    <span class="label"><%= locale.email %></span>
+                                    <div class="error" id="emailLoginError"></div>
+                                    <span class="border"></span>
+                                </label>
+                            </div>
+                            <div class="form-row">
+                                <label class="form-row-inner">
+                                    <input type="password" name="password_1" id="password_1" class="input-text" oninput="validateLoginPassword()" required>
+                                    <span class="label"><%= locale.password %></span>
+                                    <div class="error" id="password_1Error"></div>
+                                    <span class="border"></span>
+                                </label>
+                            </div>
+                            <div class="form-row-last">
+                                <button type="button" class="register" onclick="loginUser()"><%= locale.login %></button>
+                            </div>
+                        </div>
+                    </form>
+                    
+                </div>
+                
+            </div>
+        </div>
+        <div class="goback mt-3 d-block">
+            <a style="text-decoration: none;" href="/main?lang=<%= locale.lang %>"><%= locale.back %></a>
+        </div>
+    </main>
+
+    <footer class="footer bg-primary text-center py-3">
+        <div class="dropup dropup-center me-3 language-selector">
+            <a class="dropdown-toggle" href="#" id="Dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="text-decoration: none;">
+                <img src="/images/flags/<%= locale.language %>.png" alt="<%= locale.language %>" style="width: 30px; height: 20px;">
+            </a>
+            
+        
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="Dropdown">
+                <li class="d-flex align-items-center">
+                    <a class="dropdown-item active" href="#">
+                            <img src="/images/flags/<%= locale.language %>.png" alt="Russian" style="width: 30px;"> <%= locale.Language %>
+                        <i class="fa fa-check text-success ms-2"></i>
+                    </a>
+                </li>
+                <li><hr class="dropdown-divider"></li>
+                <li class="d-flex align-items-center">
+                    <% if (locale.lang === 'ru') { %>
+                        <a class="dropdown-item" href="/sign?lang=en">
+                            <img src="/images/flags/english.png" alt="English" style="width: 30px;"> English 
+                        </a>
+                    <% } else if (locale.lang === 'en') { %>
+                        <a class="dropdown-item" href="/sign?lang=ru">
+                            <img src="/images/flags/russian.png" alt="Russian" style="width: 30px;"> Russian 
+                        </a>
+                    <% } %>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="container">
+            <a class="text-white text-decoration-none" target="_blank" href="https://www.youtube.com/watch?v=gmqu-BLKE-k&list=PLo_wretdH6NvhfR-M9J0VVE1qeJI0weXy&index=1&ab_channel=ghostXD"><%= locale.madeBy %></a>
+        </div>
+    </footer>
+
+</body>
+
+</html>

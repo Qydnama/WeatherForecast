@@ -1,0 +1,79 @@
+html, body { 
+    margin: 0; 
+    font-family: 'Montserrat', sans-serif;
+    background-color: #f4f4f4; 
+}
+
+.card-main {
+    background-color: #007bff;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+
+.table {
+    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,.1);
+}
+
+.table th, .table td {
+    border-top: none;
+}
+
+.form {
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.1);
+    border-radius: 5px;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border: none;
+}
+
+.btn-outline-light {
+    border: 1px solid #fff;
+}
+
+.footer {
+    background-color: #007bff;
+    color: #fff;
+}
+
+
+
+.nav-tabs .nav-link.active {
+    color: #495057;
+    background-color: #fff;
+    border-color: #dee2e6 #dee2e6 #fff;
+}
+
+
+.nav-item a:hover { 
+    color: #ccc !important; }
+
+footer { 
+    color: white; 
+    background-color: #007bff; 
+    margin-top: 496px; 
+    padding: 10px 0; 
+}
+
+.language-selector {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.dropdown-menu {
+    position: absolute;
+    bottom: 100%;
+    right: 0;
+}

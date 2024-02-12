@@ -1,0 +1,32 @@
+body {
+	margin:  0;
+    font-family: 'Montserrat', sans-serif; 
+    background-color: #f4f4f4; 
+}
+
+.mainmain {
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.1);
+    border-radius: 5px;
+}
+
+footer { 
+    color: white; 
+    background-color: #007bff; 
+    margin-top: 100px; 
+    padding: 10px 0; 
+}
+
+.language-selector {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.dropdown-menu {
+    position: absolute;
+    bottom: 100%;
+    right: 0;
+}
