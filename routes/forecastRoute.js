@@ -3,6 +3,7 @@ const router = express.Router();
 const { Forecast } = require('../models/forecast');
 const PDFDocument = require('pdfkit');
 const axios = require('axios');
+const path = require('path');
 
 
 const { checkAuthenticated } = require('../middleware/authHandler');
@@ -47,7 +48,7 @@ router.get('/history/download-pdf/:id', async (req, res) => {
         const formatForecast16Days = (data) => {
             let formattedString = `City: ${data.city_name}, Country: ${data.country_code}\n`;
             data.data.forEach((day, index) => {
-                formattedString += `        Day ${index + 1}: Date - ${day.datetime}, Max Temp - ${day.max_temp}°C, Min Temp - ${day.min_temp}°C, Description - ${day.weather.description}\n`;
+                formattedString += `        Day ${index + 1}:\n        Date - ${day.datetime}, \n        Max Temp - ${day.max_temp}°C, \n        Min Temp - ${day.min_temp}°C, \n        Description - ${day.weather.description}\n\n`;
             });
             return formattedString;
         };
@@ -82,7 +83,7 @@ router.get('/history/download-pdf/:id', async (req, res) => {
         16 Days Forecast:
         ${formatForecast16Days(forecastData.forecast16Days)}
         `;
-
+        doc.font(path.join(__dirname,'../public/fonts/Montserrat-Regular.ttf'));
         doc.y = 300;
         doc.text(content, 50, 50);
         doc.pipe(res);
