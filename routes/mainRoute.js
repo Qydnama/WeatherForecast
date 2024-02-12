@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { checkAuthenticated, checkAdmin } = require('../middleware/authHandler');
+const { checkAuthenticated } = require('../middleware/authHandler');
 
 router.get('/', async (req, res) => {
     res.redirect('/main');
